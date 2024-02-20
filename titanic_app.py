@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib as plt
 import numpy as np
 import altair as alt
-
+"""
 path = "train.data"
 df = pd.read_csv(path, index_col= 'PassengerId')
 st.title("Streamit Histogramas Titanic")
@@ -23,7 +23,7 @@ st.markdown('### Parents/children aboard')
 st.bar_chart(df['Parch'].plot(kind='hist', grid= True, xlabel="Parents / children aboard", bins = 6))
 st.markdown('### Passenger fare')
 st.bar_chart(df['Fare'].plot(kind='hist', grid=True, edgecolor="BLACK", bins = 5))
-
+"""
 #Prueba
 chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
 c = (
