@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-path = "../data/raw/train.data"
+path = "train.data"
 df = pd.read_csv(path, index_col= 'PassengerId')
 st.title("Streamit Histogramas Titanic")
 st.header("Rafael Takata García")
