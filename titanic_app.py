@@ -11,10 +11,18 @@ st.header("Rafael Takata García")
 st.dataframe(df.head(3))
 st.markdown('## Histogramas por features') 
 
-for feature in df:
-    chart_data = df[feature]
-    c = (
-        alt.chart(chart_data)
-        .mark_bar()
-        .encode(x = feature)
-    )
+def graph_creator(dataframe, column):
+    data = dataframe[column].value_counts().reset_index()
+    data.columns = [column, 'Count']
+    chart = alt.Chart(data).mark_bar(color='red').encode(
+        x = alt.X(f'{column}:N', title = column),
+        y = alt.Y('Count:Q', title = 'Frecuencia'),
+)
+    st.altair_chart(chart)
+   
+graph_creator(df, 'Survived')
+graph_creator(df, 'Pclass')
+graph_creator(df, 'Age')
+graph_creator(df, 'SibSp')
+graph_creator(df, 'Parch')
+graph_creator(df, 'Fare')
